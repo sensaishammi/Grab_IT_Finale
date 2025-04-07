@@ -601,18 +601,24 @@
 
     .notification-badge {
       position: absolute;
-      top: -5px;
-      right: -5px;
+      top: -8px;
+      right: -8px;
       background: var(--danger);
       color: white;
       border-radius: 50%;
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.7rem;
       font-weight: bold;
+      z-index: 1;
+    }
+
+    .notification-button {
+      position: relative;
+      padding: 0.6rem 1rem;
     }
 
     /* Stats Cards */
