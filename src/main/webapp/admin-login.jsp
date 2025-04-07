@@ -262,7 +262,7 @@
       <i class="fas fa-utensils brand-icon"></i>
       <div class="brand-text">
         <h1>GrabIT</h1>
-        <p>Admin Portal</p>
+        <p>Skip the Line, GrabIT on Time!</p>
       </div>
     </div>
 

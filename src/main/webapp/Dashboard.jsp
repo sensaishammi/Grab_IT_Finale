@@ -733,12 +733,10 @@
     <div class="sidebar">
         <div class="sidebar-header">
             <div class="brand">
-                <div class="brand-icon">
-                    <i class="fas fa-cube"></i>
-                </div>
+                <i class="fas fa-utensils brand-icon"></i>
                 <div class="brand-text">
                     <h1>GrabIT</h1>
-                    <p>Admin Dashboard</p>
+                    <p>Skip the Line, GrabIT on Time!</p>
                 </div>
             </div>
         </div>
