@@ -34,7 +34,8 @@
       overflow-x: hidden;
     }
 
-    .dark-mode {
+    /* Dark Theme */
+    .dark-theme {
       --primary: #00b4d8;
       --primary-dark: #0096c7;
       --secondary: #90e0ef;
@@ -46,6 +47,179 @@
       --text-secondary: #aaa;
       --glass-bg: rgba(0, 0, 0, 0.2);
       --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    .dark-theme .card {
+      background: var(--light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .dark-theme .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 150, 199, 0.3);
+    }
+
+    .dark-theme .stat-card {
+      background: var(--light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .dark-theme .stat-card:hover {
+      background: linear-gradient(135deg, var(--dark), var(--light));
+    }
+
+    .dark-theme .nav-item.active {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+
+    .dark-theme .nav-item:hover {
+      background: var(--glass-bg);
+      color: var(--secondary);
+    }
+
+    .dark-theme .action-button {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+    }
+
+    .dark-theme .action-button:hover {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 150, 199, 0.3);
+    }
+
+    /* Light Theme */
+    .light-theme {
+      --primary: #0096c7;
+      --primary-dark: #0077b6;
+      --secondary: #00b4d8;
+      --accent: #90e0ef;
+      --dark: #1a1a1a;
+      --light: #ffffff;
+      --gray: #f8f9fa;
+      --text-primary: #333;
+      --text-secondary: #666;
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(0, 0, 0, 0.1);
+    }
+
+    .light-theme .card {
+      background: var(--light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .light-theme .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .light-theme .stat-card {
+      background: var(--light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .light-theme .stat-card:hover {
+      background: linear-gradient(135deg, var(--gray), var(--light));
+    }
+
+    .light-theme .nav-item.active {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+
+    .light-theme .nav-item:hover {
+      background: var(--glass-bg);
+      color: var(--primary);
+    }
+
+    .light-theme .action-button {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+    }
+
+    .light-theme .action-button:hover {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 150, 199, 0.3);
+    }
+
+    /* Red Theme */
+    .red-theme {
+      --primary: #BE1515;
+      --primary-dark: #8C0000;
+      --secondary: #E85353;
+      --accent: #FF7A7A;
+      --dark: #1a1a1a;
+      --light: #2a2a2a;
+      --gray: #121212;
+      --text-primary: #fff;
+      --text-secondary: #aaa;
+      --glass-bg: rgba(190, 21, 21, 0.1);
+      --glass-border: rgba(232, 83, 83, 0.2);
+    }
+
+    .red-theme .card {
+      background: linear-gradient(135deg, var(--light), var(--dark));
+      border: 1px solid var(--glass-border);
+    }
+
+    .red-theme .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(190, 21, 21, 0.3);
+    }
+
+    .red-theme .stat-card {
+      background: linear-gradient(135deg, var(--light), var(--dark));
+      border: 1px solid var(--glass-border);
+    }
+
+    .red-theme .stat-card:hover {
+      background: linear-gradient(135deg, var(--dark), var(--light));
+    }
+
+    .red-theme .nav-item.active {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+
+    .red-theme .nav-item:hover {
+      background: var(--glass-bg);
+      color: var(--secondary);
+    }
+
+    .red-theme .action-button {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+    }
+
+    .red-theme .action-button:hover {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(190, 21, 21, 0.3);
+    }
+
+    .red-theme .brand-icon {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .red-theme .brand-text h1 {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .red-theme .chart-bar {
+      background: linear-gradient(to top, var(--primary), var(--secondary));
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { opacity: 0.7; }
     }
 
     /* Enhanced Sidebar */
@@ -96,12 +270,6 @@
       border: 2px solid var(--light);
       animation: pulse 2s infinite;
       animation-delay: 0.5s;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
     }
 
     .brand-text h1 {
@@ -491,7 +659,7 @@
     }
   </style>
 </head>
-<body class="dark-mode">
+<body class="dark-theme">
   <!-- Sidebar -->
   <div class="sidebar">
     <div class="sidebar-header">
@@ -534,10 +702,13 @@
         <input type="text" placeholder="Search...">
       </div>
       <div class="user-actions">
-        <button class="action-button" onclick="toggleTheme()">
-          <i class="fas fa-sun"></i>
-          <span>Theme</span>
-        </button>
+        <div class="theme-selector">
+          <select class="action-button" id="theme-selector" onchange="changeTheme(this.value)">
+            <option value="dark">Dark Theme</option>
+            <option value="light">Light Theme</option>
+            <option value="red">Red Theme</option>
+          </select>
+        </div>
         <button class="action-button notification-button" onclick="toggleNotifications()">
           <i class="fas fa-bell"></i>
           <span class="notification-badge">3</span>
@@ -589,6 +760,28 @@
         <div class="stat-change positive">
           <i class="fas fa-arrow-up"></i>
           <span>+201 since last hour</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon accent">
+          <i class="fas fa-clipboard-list"></i>
+        </div>
+        <div class="stat-value">1,234</div>
+        <div class="stat-label">Total Orders</div>
+        <div class="stat-change positive">
+          <i class="fas fa-arrow-up"></i>
+          <span>15% from last month</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon secondary">
+          <i class="fas fa-receipt"></i>
+        </div>
+        <div class="stat-value">$36.75</div>
+        <div class="stat-label">Avg. Order Value</div>
+        <div class="stat-change positive">
+          <i class="fas fa-arrow-up"></i>
+          <span>8% from last month</span>
         </div>
       </div>
     </div>
@@ -654,11 +847,20 @@
   </div>
 
   <script>
+    // Theme change function
+    function changeTheme(theme) {
+      const body = document.body;
+      body.className = theme + '-theme';
+    }
+
     // Theme toggle function
     function toggleTheme() {
       const body = document.body;
-      body.classList.toggle("dark-mode");
-      body.classList.toggle("light-mode");
+      const currentTheme = body.className;
+      const themes = ['dark', 'light', 'red'];
+      const currentIndex = themes.indexOf(currentTheme.replace('-theme', ''));
+      const nextIndex = (currentIndex + 1) % themes.length;
+      changeTheme(themes[nextIndex]);
     }
 
     // Notification toggle function
