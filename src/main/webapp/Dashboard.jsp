@@ -728,7 +728,7 @@
         }
     </style>
 </head>
-<body class="light-theme">
+<body class="red-theme">
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-header">
