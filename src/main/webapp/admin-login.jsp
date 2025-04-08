@@ -17,21 +17,11 @@
   <title>GrabIT - Admin Login</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
-    /* Reset and base styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     :root {
       --primary: #BE1515;
       --primary-dark: #8C0000;
       --secondary: #E85353;
       --accent: #FF7A7A;
-      --success: #2ecc71;
-      --warning: #f1c40f;
-      --danger: #e74c3c;
       --dark: #1a1a1a;
       --light: #2a2a2a;
       --gray: #121212;
@@ -39,140 +29,157 @@
       --text-secondary: #aaa;
       --glass-bg: rgba(190, 21, 21, 0.1);
       --glass-border: rgba(232, 83, 83, 0.2);
+      --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      --hover-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, var(--dark), var(--gray));
+      color: var(--text-primary);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 2rem;
-      color: var(--text-primary);
-      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-      position: relative;
-      overflow: hidden;
-    }
-
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 20%, rgba(190, 21, 21, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(232, 83, 83, 0.15) 0%, transparent 50%),
-        linear-gradient(45deg, rgba(190, 21, 21, 0.1) 0%, transparent 50%),
-        linear-gradient(-45deg, rgba(232, 83, 83, 0.1) 0%, transparent 50%);
-      z-index: 1;
-    }
-
-    body::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BE1515' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      z-index: 2;
     }
 
     .login-container {
-      background: rgba(42, 42, 42, 0.95);
-      border-radius: 20px;
-      box-shadow: 
-        0 10px 30px rgba(190, 21, 21, 0.3),
-        0 0 0 1px rgba(232, 83, 83, 0.1);
       width: 100%;
-      max-width: 400px;
-      padding: 2rem;
-      position: relative;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      background: linear-gradient(180deg, rgba(42, 42, 42, 0.9), rgba(26, 26, 26, 0.9));
+      border-radius: 2rem;
       overflow: hidden;
-      z-index: 3;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(232, 83, 83, 0.2);
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--glass-border);
     }
 
-    .login-container::before {
+    .login-image {
+      position: relative;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+    }
+
+    .login-image::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80') center/cover;
+      opacity: 0.1;
     }
 
-    .brand {
+    .brand-section {
       text-align: center;
-      margin-bottom: 1.8rem;
+      z-index: 1;
     }
 
     .brand-icon {
-      font-size: 3rem;
-      margin-bottom: 0.8rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 4px rgba(190, 21, 21, 0.3));
-    }
-
-    .brand-text {
-      text-align: center;
-      margin-bottom: 1.8rem;
+      font-size: 4rem;
+      color: white;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     .brand-text h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff, #f0f0f0);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 4px rgba(190, 21, 21, 0.3));
+      letter-spacing: -1px;
     }
 
     .brand-text p {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 400px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .login-form {
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .form-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+    }
+
+    .form-header p {
       color: var(--text-secondary);
-      margin: 0.5rem 0 0;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
     }
 
     .form-group {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
       position: relative;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       color: var(--text-primary);
       font-weight: 500;
-      font-size: 0.9rem;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    .input-group i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      font-size: 1.25rem;
     }
 
     .form-control {
       width: 100%;
-      padding: 0.8rem 1rem;
-      border: 1px solid rgba(232, 83, 83, 0.2);
-      border-radius: 10px;
-      background: rgba(190, 21, 21, 0.1);
+      padding: 1rem 1rem 1rem 3rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
       color: var(--text-primary);
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
+      font-size: 1rem;
+      transition: var(--hover-transition);
     }
 
     .form-control:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 2px rgba(190, 21, 21, 0.3);
       outline: none;
-      background: rgba(190, 21, 21, 0.15);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(190, 21, 21, 0.2);
     }
 
     .form-control::placeholder {
@@ -181,120 +188,86 @@
 
     .btn-login {
       width: 100%;
-      padding: 0.9rem;
+      padding: 1rem;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       border: none;
-      border-radius: 10px;
+      border-radius: 1rem;
       color: white;
+      font-size: 1.1rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-login::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: 0.5s;
-    }
-
-    .btn-login:hover::before {
-      left: 100%;
+      transition: var(--hover-transition);
+      margin-top: 1rem;
     }
 
     .btn-login:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(190, 21, 21, 0.4);
+      box-shadow: 0 4px 15px rgba(190, 21, 21, 0.3);
     }
 
     .error-message {
       color: var(--accent);
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-      display: none;
       text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
     }
 
-    .admin-list {
-      margin-top: 1.2rem;
-      padding: 1rem;
-      background: rgba(190, 21, 21, 0.1);
-      border-radius: 10px;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      border: 1px solid rgba(232, 83, 83, 0.2);
-    }
-
-    .admin-list p {
-      margin: 0;
-      font-weight: 500;
-      color: var(--text-primary);
-      font-size: 0.85rem;
-    }
-
-    .admin-list ul {
-      list-style: none;
-      padding: 0;
-      margin: 0.4rem 0 0;
-    }
-
-    .admin-list li {
-      margin: 0.2rem 0;
-      padding-left: 1.2rem;
-      position: relative;
-      font-size: 0.8rem;
-    }
-
-    .admin-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
+    @media (max-width: 768px) {
+      .login-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .login-image {
+        display: none;
+      }
+      
+      .login-form {
+        padding: 2rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="login-container">
-    <div class="brand">
-      <i class="fas fa-utensils brand-icon"></i>
-      <div class="brand-text">
-        <h1>GrabIT</h1>
-        <p>Skip the Line, GrabIT on Time!</p>
+    <div class="login-image">
+      <div class="brand-section">
+        <i class="fas fa-utensils brand-icon"></i>
+        <div class="brand-text">
+          <h1>GrabIT</h1>
+          <p>Admin Portal - Secure Access</p>
+        </div>
       </div>
     </div>
-
-    <form id="loginForm" action="${pageContext.request.contextPath}/login" method="POST">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+    
+    <div class="login-form">
+      <div class="form-header">
+        <h2>Welcome Back</h2>
+        <p>Please sign in to continue</p>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
-      </div>
-      <c:if test="${not empty error}">
-        <div class="error-message" style="display: block;">${error}</div>
-      </c:if>
-      <button type="submit" class="btn-login">Login</button>
-    </form>
-
-    <div class="admin-list">
-      <p>Authorized Admins:</p>
-      <ul>
-        <li>lokesh</li>
-        <li>kaustubh</li>
-        <li>rutuparna</li>
-        <li>heril</li>
-        <li>shammi</li>
-      </ul>
+      
+      <form action="${pageContext.request.contextPath}/login" method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required />
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required />
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-login">Sign In</button>
+        
+        <c:if test="${not empty error}">
+          <div class="error-message">${error}</div>
+        </c:if>
+      </form>
     </div>
   </div>
 </body>

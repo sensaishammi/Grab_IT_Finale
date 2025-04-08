@@ -26,28 +26,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
         :root {
-            --primary: #0096c7;
-            --primary-dark: #0077b6;
-            --secondary: #00b4d8;
-            --accent: #90e0ef;
-            --success: #2ecc71;
-            --warning: #f1c40f;
-            --danger: #e74c3c;
+            --primary: #BE1515;
+            --primary-dark: #8C0000;
+            --secondary: #E85353;
+            --accent: #FF7A7A;
             --dark: #1a1a1a;
-            --light: #ffffff;
-            --gray: #f8f9fa;
-            --text-primary: #333;
-            --text-secondary: #666;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
+            --light: #2a2a2a;
+            --gray: #121212;
+            --text-primary: #fff;
+            --text-secondary: #aaa;
+            --glass-bg: rgba(190, 21, 21, 0.1);
+            --glass-border: rgba(232, 83, 83, 0.2);
+            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --hover-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--gray);
+            background: linear-gradient(135deg, var(--dark), var(--gray));
             color: var(--text-primary);
-            transition: all 0.3s ease;
+            transition: var(--hover-transition);
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         /* Dark Theme */
@@ -107,41 +107,46 @@
 
         /* Light Theme */
         .light-theme {
-            --primary: #0096c7;
-            --primary-dark: #0077b6;
-            --secondary: #00b4d8;
-            --accent: #90e0ef;
-            --dark: #1a1a1a;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #3b82f6;
+            --accent: #60a5fa;
+            --dark: #1e293b;
             --light: #ffffff;
-            --gray: #f8f9fa;
-            --text-primary: #333;
-            --text-secondary: #666;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(0, 0, 0, 0.1);
+            --gray: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --glass-bg: rgba(37, 99, 235, 0.05);
+            --glass-border: rgba(37, 99, 235, 0.1);
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .light-theme .card {
             background: var(--light);
             border: 1px solid var(--glass-border);
+            box-shadow: var(--card-shadow);
         }
 
         .light-theme .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.1);
         }
 
         .light-theme .stat-card {
             background: var(--light);
             border: 1px solid var(--glass-border);
+            box-shadow: var(--card-shadow);
         }
 
         .light-theme .stat-card:hover {
-            background: linear-gradient(135deg, var(--gray), var(--light));
+            background: linear-gradient(135deg, var(--light), var(--gray));
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.1);
         }
 
         .light-theme .nav-item.active {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
         }
 
         .light-theme .nav-item:hover {
@@ -157,7 +162,67 @@
         .light-theme .action-button:hover {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 150, 199, 0.3);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .light-theme .brand-text h1 {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .light-theme .sidebar {
+            background: linear-gradient(180deg, var(--light), var(--gray));
+            border-right: 1px solid var(--glass-border);
+        }
+
+        .light-theme .sidebar-header {
+            background: linear-gradient(180deg, var(--light), var(--gray));
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .light-theme .header {
+            background: linear-gradient(180deg, var(--light), var(--gray));
+            box-shadow: var(--card-shadow);
+        }
+
+        .light-theme .activity-card {
+            background: var(--light);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--card-shadow);
+        }
+
+        .light-theme .activity-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+        }
+
+        .light-theme .activity-item:hover {
+            background: var(--glass-border);
+        }
+
+        .light-theme .user-profile {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+        }
+
+        .light-theme .user-profile:hover {
+            background: var(--glass-border);
+        }
+
+        .light-theme .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+        }
+
+        .light-theme .theme-toggle:hover {
+            background: var(--glass-border);
+            color: var(--primary);
+        }
+
+        .light-theme .user-avatar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
         }
 
         /* Red Theme */
@@ -245,17 +310,18 @@
             position: fixed;
             left: 0;
             top: 0;
-            background: var(--light);
-            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(180deg, var(--light), var(--dark));
+            box-shadow: var(--card-shadow);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: var(--hover-transition);
             backdrop-filter: blur(10px);
             border-right: 1px solid var(--glass-border);
         }
 
         .sidebar-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            background: linear-gradient(180deg, rgba(42, 42, 42, 0.9), rgba(26, 26, 26, 0.9));
         }
 
         .brand {
@@ -275,16 +341,20 @@
         }
 
         .brand-text h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 800;
             margin: 0;
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
 
         .brand-text p {
             color: var(--text-secondary);
             margin: 0.5rem 0 0;
             font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .nav-menu {
@@ -295,28 +365,32 @@
             position: relative;
             display: flex;
             align-items: center;
-            padding: 0.75rem 1.5rem;
+            padding: 1rem 1.5rem;
             color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.3s ease;
-            border-radius: 0.5rem;
-            margin: 0.25rem 1rem;
+            transition: var(--hover-transition);
+            border-radius: 0.75rem;
+            margin: 0.5rem 1rem;
             cursor: pointer;
+            font-weight: 500;
         }
 
         .nav-item i {
             margin-right: 1rem;
             font-size: 1.25rem;
+            transition: var(--hover-transition);
         }
 
         .nav-item:hover {
             background: var(--glass-bg);
-            color: var(--primary);
+            color: var(--text-primary);
+            transform: translateX(5px);
         }
 
         .nav-item.active {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            box-shadow: 0 4px 15px rgba(190, 21, 21, 0.3);
         }
 
         .nav-item.logout {
@@ -338,25 +412,31 @@
         .main-content {
             margin-left: 280px;
             padding: 2rem;
-            transition: all 0.3s ease;
+            transition: var(--hover-transition);
         }
 
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
+            padding: 1.25rem;
+            background: linear-gradient(180deg, rgba(42, 42, 42, 0.9), rgba(26, 26, 26, 0.9));
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
         }
 
         .page-title h2 {
-            font-size: 1.75rem;
+            font-size: 2rem;
+            font-weight: 700;
             margin: 0;
             color: var(--text-primary);
+            letter-spacing: -0.5px;
         }
 
         .page-title p {
-            font-size: 0.875rem;
-            margin: 0.25rem 0 0;
+            font-size: 1rem;
+            margin: 0.5rem 0 0;
             color: var(--text-secondary);
         }
 
@@ -367,20 +447,40 @@
         }
 
         .theme-toggle {
-            background: none;
-            border: none;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
             color: var(--text-secondary);
             cursor: pointer;
             font-size: 1.25rem;
-            transition: all 0.3s ease;
+            transition: var(--hover-transition);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .theme-toggle:hover {
-            color: var(--primary);
+            background: var(--glass-border);
+            color: var(--text-primary);
+            transform: rotate(15deg);
         }
 
         .user-profile {
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--glass-bg);
+            border-radius: 2rem;
+            border: 1px solid var(--glass-border);
+            transition: var(--hover-transition);
+        }
+
+        .user-profile:hover {
+            background: var(--glass-border);
         }
 
         .session-indicator {
@@ -437,48 +537,52 @@
         }
 
         .user-avatar {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 3rem;
+            height: 3rem;
             border-radius: 50%;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 15px rgba(190, 21, 21, 0.3);
         }
 
         .user-info h3 {
-            font-size: 0.875rem;
+            font-size: 1rem;
+            font-weight: 600;
             margin: 0;
             color: var(--text-primary);
         }
 
         .user-info p {
-            font-size: 0.75rem;
-            margin: 0;
+            font-size: 0.875rem;
+            margin: 0.25rem 0 0;
             color: var(--text-secondary);
         }
 
         /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
         .stat-card {
-            background: var(--light);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
+            background: linear-gradient(180deg, rgba(42, 42, 42, 0.9), rgba(26, 26, 26, 0.9));
+            border-radius: 1.25rem;
+            padding: 2rem;
+            transition: var(--hover-transition);
             border: 1px solid var(--glass-border);
+            box-shadow: var(--card-shadow);
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 40px rgba(190, 21, 21, 0.2);
         }
 
         .stat-header {
@@ -489,14 +593,15 @@
         }
 
         .stat-icon {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 0.75rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .stat-icon.primary {
@@ -516,15 +621,18 @@
         }
 
         .stat-value h3 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin: 0;
             color: var(--text-primary);
+            letter-spacing: -1px;
         }
 
         .stat-label {
-            font-size: 0.875rem;
+            font-size: 1rem;
             color: var(--text-secondary);
-            margin: 0.25rem 0 0;
+            margin: 0.5rem 0 0;
+            font-weight: 500;
         }
 
         .stat-trend {
@@ -547,8 +655,8 @@
         .charts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 1.25rem;
+            margin-bottom: 1.75rem;
         }
 
         .chart-card {
@@ -602,16 +710,12 @@
 
         /* Recent Activity */
         .activity-card {
-            background: var(--light);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
+            background: linear-gradient(180deg, rgba(42, 42, 42, 0.9), rgba(26, 26, 26, 0.9));
+            border-radius: 1.25rem;
+            padding: 1.75rem;
+            transition: var(--hover-transition);
             border: 1px solid var(--glass-border);
-        }
-
-        .activity-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--card-shadow);
         }
 
         .activity-header {
@@ -630,32 +734,35 @@
         .activity-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.875rem;
         }
 
         .activity-item {
             display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.25rem;
             background: var(--glass-bg);
-            border-radius: 0.75rem;
-            transition: all 0.3s ease;
+            border-radius: 1rem;
+            transition: var(--hover-transition);
+            border: 1px solid var(--glass-border);
         }
 
         .activity-item:hover {
             background: var(--glass-border);
+            transform: translateX(5px);
         }
 
         .activity-icon {
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 0.5rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.25rem;
             color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .activity-icon.primary {
@@ -679,13 +786,14 @@
         }
 
         .activity-text {
-            font-size: 0.875rem;
+            font-size: 1rem;
             color: var(--text-primary);
             margin: 0;
+            font-weight: 500;
         }
 
         .activity-time {
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             color: var(--text-secondary);
             margin: 0.25rem 0 0;
         }
@@ -739,9 +847,8 @@
     <div class="sidebar">
         <div class="sidebar-header">
             <div class="brand">
-                <i class="fas fa-utensils brand-icon"></i>
                 <div class="brand-text">
-                    <h1>GrabIT</h1>
+                    <h1><i class="fas fa-utensils"></i> GrabIT</h1>
                     <p>Skip the Line, GrabIT on Time!</p>
                 </div>
             </div>
@@ -821,8 +928,8 @@
             </div>
             <div class="stat-card">
                 <div class="stat-header">
-                    <div class="stat-icon success">
-                        <i class="fas fa-shopping-cart"></i>
+                    <div class="stat-icon primary">
+                        <i class="fas fa-utensils"></i>
                     </div>
                     <div class="stat-value">
                         <h3>567</h3>
@@ -836,23 +943,23 @@
             </div>
             <div class="stat-card">
                 <div class="stat-header">
-                    <div class="stat-icon warning">
-                        <i class="fas fa-exclamation-triangle"></i>
+                    <div class="stat-icon primary">
+                        <i class="fas fa-clock"></i>
                     </div>
                     <div class="stat-value">
                         <h3>23</h3>
                         <p class="stat-label">Pending Issues</p>
-                        <div class="stat-trend negative">
-                            <i class="fas fa-arrow-down"></i>
-                            <span>5% decrease</span>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>5% increase</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="stat-card">
                 <div class="stat-header">
-                    <div class="stat-icon danger">
-                        <i class="fas fa-ban"></i>
+                    <div class="stat-icon primary">
+                        <i class="fas fa-user-lock"></i>
                     </div>
                     <div class="stat-value">
                         <h3>45</h3>
@@ -860,6 +967,36 @@
                         <div class="stat-trend positive">
                             <i class="fas fa-arrow-up"></i>
                             <span>3% increase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon primary">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="stat-value">
+                        <h3>89</h3>
+                        <p class="stat-label">Active Restaurants</p>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>15% increase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon primary">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-value">
+                        <h3>$12.5K</h3>
+                        <p class="stat-label">Total Revenue</p>
+                        <div class="stat-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>22% increase</span>
                         </div>
                     </div>
                 </div>
@@ -923,7 +1060,7 @@
                     </div>
                 </div>
                 <div class="activity-item">
-                    <div class="activity-icon success">
+                    <div class="activity-icon primary">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="activity-content">
@@ -932,7 +1069,7 @@
                     </div>
                 </div>
                 <div class="activity-item">
-                    <div class="activity-icon warning">
+                    <div class="activity-icon primary">
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
                     <div class="activity-content">
@@ -941,7 +1078,7 @@
                     </div>
                 </div>
                 <div class="activity-item">
-                    <div class="activity-icon danger">
+                    <div class="activity-icon primary">
                         <i class="fas fa-ban"></i>
                     </div>
                     <div class="activity-content">

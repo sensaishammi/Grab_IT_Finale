@@ -22,9 +22,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("isAdmin", true);
             session.setAttribute("username", username);
-            String redirectPath = request.getContextPath() + "/Dashboard.jsp";
-            System.out.println("Redirecting to: " + redirectPath);
-            response.sendRedirect(redirectPath);
+            response.sendRedirect(request.getContextPath() + "/Dashboard.jsp");
         } else {
             System.out.println("Login failed for user: " + username);
             request.setAttribute("error", "Invalid username or password");
@@ -35,10 +33,10 @@ public class LoginServlet extends HttpServlet {
     private boolean isValidAdmin(String username, String password) {
         // In a real application, this would check against a database
         // For now, we'll just check if the username is in the list of authorized admins
-        // and the password is "admin"
+        // and the password matches the username
         String[] authorizedAdmins = {"lokesh", "kaustubh", "rutuparna", "heril", "shammi"};
         for (String admin : authorizedAdmins) {
-            if (admin.equals(username) && "admin".equals(password)) {
+            if (admin.equals(username) && admin.equals(password)) {
                 return true;
             }
         }
