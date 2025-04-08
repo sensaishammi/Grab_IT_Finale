@@ -269,16 +269,22 @@
             color: var(--primary);
         }
 
+        .brand-text {
+            text-align: center;
+            margin-bottom: 1.8rem;
+        }
+
         .brand-text h1 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
             margin: 0;
-            color: var(--text-primary);
+            color: var(--primary);
         }
 
         .brand-text p {
-            font-size: 0.875rem;
-            margin: 0;
             color: var(--text-secondary);
+            margin: 0.5rem 0 0;
+            font-size: 0.9rem;
         }
 
         .nav-menu {

@@ -120,6 +120,11 @@
       filter: drop-shadow(0 2px 4px rgba(190, 21, 21, 0.3));
     }
 
+    .brand-text {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
     .brand-text h1 {
       font-size: 1.8rem;
       font-weight: 700;
