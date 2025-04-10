@@ -859,20 +859,24 @@
                 <span>Dashboard</span>
             </a>
             <a href="#" class="nav-item">
+                <i class="fas fa-utensils"></i>
+                <span>Restaurants</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Orders</span>
+            </a>
+            <a href="#" class="nav-item">
                 <i class="fas fa-users"></i>
-                <span>Users</span>
+                <span>Customers</span>
             </a>
             <a href="#" class="nav-item">
-                <i class="fas fa-cog"></i>
-                <span>Settings</span>
+                <i class="fas fa-chart-line"></i>
+                <span>Reports</span>
             </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-chart-bar"></i>
-                <span>Analytics</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-bell"></i>
-                <span>Notifications</span>
+            <a href="menu-management.jsp" class="nav-item">
+                <i class="fas fa-bars"></i>
+                <span>Menu</span>
             </a>
             <a href="javascript:void(0)" class="nav-item logout" onclick="logout()">
                 <i class="fas fa-sign-out-alt"></i>
