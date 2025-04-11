@@ -51,11 +51,11 @@
             <version>2.13.0</version>
         </dependency>
 
-        <!-- Firebase Admin SDK -->
+        <!-- Apache Commons CSV -->
         <dependency>
-            <groupId>com.google.firebase</groupId>
-            <artifactId>firebase-admin</artifactId>
-            <version>9.1.1</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.10.0</version>
         </dependency>
     </dependencies>
 

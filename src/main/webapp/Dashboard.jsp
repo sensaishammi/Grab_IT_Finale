@@ -854,33 +854,21 @@
             </div>
         </div>
         <div class="nav-menu">
-            <a href="#" class="nav-item active">
+            <a href="Dashboard.jsp" class="nav-item">
                 <i class="fas fa-home"></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-utensils"></i>
-                <span>Restaurants</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-shopping-cart"></i>
-                <span>Orders</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-users"></i>
-                <span>Customers</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-chart-line"></i>
-                <span>Reports</span>
+                Dashboard
             </a>
             <a href="menu-management.jsp" class="nav-item">
-                <i class="fas fa-bars"></i>
-                <span>Menu</span>
+                <i class="fas fa-utensils"></i>
+                Menu Management
             </a>
-            <a href="javascript:void(0)" class="nav-item logout" onclick="logout()">
+            <a href="reports.jsp" class="nav-item">
+                <i class="fas fa-chart-bar"></i>
+                Reports
+            </a>
+            <a href="admin-login.jsp" class="nav-item logout">
                 <i class="fas fa-sign-out-alt"></i>
-                <span>Logout</span>
+                Logout
             </a>
         </div>
     </div>
@@ -1185,6 +1173,28 @@
         window.onload = function() {
             startSessionTimer();
         };
+
+        // Function to fetch and update dashboard stats
+        async function updateDashboardStats() {
+            try {
+                const response = await fetch('/dashboard/stats');
+                const stats = await response.json();
+                
+                // Update stats cards with hardcoded data
+                document.querySelector('.stat-card:nth-child(1) .stat-value h3').textContent = '1,234';
+                document.querySelector('.stat-card:nth-child(2) .stat-value h3').textContent = '567';
+                document.querySelector('.stat-card:nth-child(3) .stat-value h3').textContent = '23';
+                document.querySelector('.stat-card:nth-child(4) .stat-value h3').textContent = '45';
+                document.querySelector('.stat-card:nth-child(5) .stat-value h3').textContent = '89';
+                document.querySelector('.stat-card:nth-child(6) .stat-value h3').textContent = '$12.5K';
+                
+            } catch (error) {
+                console.error('Error fetching dashboard stats:', error);
+            }
+        }
+
+        // Update stats on page load
+        updateDashboardStats();
     </script>
 </body>
 </html> 
